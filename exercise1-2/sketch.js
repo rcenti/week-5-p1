@@ -1,9 +1,16 @@
-function setup() {
+let starx = [];
+let stary = [];
 
+function setup() {
+ createCanvas(400, 400);
 }
 
 function draw() {
-
+   background(0);
+   for (i = 0; i < stary.length; i++){
+    star(starx[i], stary[i]);
+   }
+   OHNO();
 }
 
 /**
@@ -19,4 +26,19 @@ function star(x, y) {
     triangle(x + 50, y - 20, x, y - 20, x, y + 10);
     triangle(x - 20, y - 5, x, y + 10, x - 35, y + 30);
     triangle(x, y + 10, x + 20, y - 5, x + 35, y + 30);
+}
+
+function mouseClicked() {
+    starx.push(mouseX);
+    stary.push(mouseY);
+}
+/**
+ * this makes them fall (oh no!)
+ */
+function OHNO() {
+    for (i = 0; i < stary.length; i ++){
+        stary[i] += 2
+    }
+
+
 }
